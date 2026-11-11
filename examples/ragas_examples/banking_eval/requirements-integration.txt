@@ -1,0 +1,6 @@
+# The upstream checkout still imports the older VertexAI community adapters.
+# These versions were used to validate this example's native Ragas integration.
+langchain==0.3.30
+langchain-core==0.3.86
+langchain-community==0.3.31
+langchain-openai==0.3.35

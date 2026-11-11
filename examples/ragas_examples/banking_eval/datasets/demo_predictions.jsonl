@@ -1,0 +1,23 @@
+{"model": "fixture-reference", "id": "fee-01", "response": {"action": "post", "amount_minor": 1000}}
+{"model": "fixture-with-errors", "id": "fee-01", "response": {"action": "post", "amount_minor": 1000}}
+{"model": "fixture-reference", "id": "fee-02", "response": {"action": "post", "amount_minor": 2000}}
+{"model": "fixture-with-errors", "id": "fee-02", "response": {"action": "post", "amount_minor": 9000}}
+{"model": "fixture-reference", "id": "fee-03", "response": {"action": "reject", "amount_minor": 0}}
+{"model": "fixture-with-errors", "id": "fee-03", "response": {"action": "reject", "amount_minor": 0}}
+{"model": "fixture-reference", "id": "balance-01", "response": {"action": "post", "amount_minor": 46000}}
+{"model": "fixture-with-errors", "id": "balance-01", "response": {"action": "post", "amount_minor": 46000}}
+{"model": "fixture-reference", "id": "balance-02", "response": {"action": "reject", "amount_minor": 0}}
+{"model": "fixture-with-errors", "id": "balance-02", "response": {"action": "post", "amount_minor": 9000}}
+{"model": "fixture-reference", "id": "balance-03", "response": {"action": "post", "amount_minor": 46000}}
+{"model": "fixture-with-errors", "id": "balance-03", "response": {"action": "post", "amount_minor": 46000}}
+{"model": "fixture-reference", "id": "retry-01", "response": {"action": "noop", "amount_minor": 0}}
+{"model": "fixture-with-errors", "id": "retry-01", "response": {"action": "post", "amount_minor": 9000}}
+{"model": "fixture-reference", "id": "retry-02", "response": {"action": "reject", "amount_minor": 0}}
+{"model": "fixture-with-errors", "id": "retry-02", "response": {"action": "reject", "amount_minor": 0}}
+{"model": "fixture-reference", "id": "retry-03", "response": {"action": "post", "amount_minor": 7000}}
+{"model": "fixture-with-errors", "id": "retry-03", "response": {"action": "post", "amount_minor": 7000}}
+{"model": "fixture-reference", "id": "reversal-01", "response": {"action": "post", "amount_minor": 12000}}
+{"model": "fixture-with-errors", "id": "reversal-01", "response": {"action": "post", "amount_minor": 12000}}
+{"model": "fixture-reference", "id": "reversal-02", "response": {"action": "noop", "amount_minor": 0}}
+{"model": "fixture-with-errors", "id": "reversal-02", "response": "not valid JSON"}
+{"model": "fixture-reference", "id": "reversal-03", "response": {"action": "review", "amount_minor": 0}}

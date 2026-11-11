@@ -192,3 +192,8 @@ To opt-out, set the `RAGAS_DO_NOT_TRACK` environment variable to `true`.
   howpublished = {\url{https://github.com/vibrantlabsai/ragas}},
 }
 ```
+
+## Fork contributions
+
+This fork includes a [banking evaluation workbench](examples/ragas_examples/banking_eval/README.md)
+with synthetic cases, deterministic scoring, and offline HTML model comparisons.

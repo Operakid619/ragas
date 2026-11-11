@@ -6,6 +6,14 @@ Q := $(if $(V),,@)
 # Common paths
 RAGAS_PATHS := src tests docs
 
+.PHONY: test-banking-eval banking-eval-demo
+test-banking-eval: ## Test the offline banking evaluation example
+	$(Q)uv run --no-project python -m unittest discover -s examples/ragas_examples/banking_eval/tests -v
+
+banking-eval-demo: ## Generate a synthetic banking comparison report without API calls
+	$(Q)mkdir -p _experiments/banking-eval
+	$(Q)uv run --no-project python examples/ragas_examples/banking_eval/evals.py --predictions examples/ragas_examples/banking_eval/datasets/demo_predictions.jsonl --output _experiments/banking-eval/comparison.json --html _experiments/banking-eval/comparison.html --export-ragas _experiments/banking-eval/dataset.json
+
 help: ## Show all Makefile targets
 	$(Q)grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[33m%-30s\033[0m %s\n", $$1, $$2}'
 
