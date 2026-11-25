@@ -4,6 +4,7 @@ import argparse
 import csv
 import html
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -204,7 +205,13 @@ def main():
     parser.add_argument(
         "--export-ragas", type=Path, help="Export Ragas-compatible dataset JSON"
     )
+    parser.add_argument("--min-accuracy", type=float, help="Fail with exit code 1 if any model scores below this fraction (0 to 1)")
     args = parser.parse_args()
+    if args.min_accuracy is not None:
+        if not 0 <= args.min_accuracy <= 1:
+            parser.error("--min-accuracy must be between 0 and 1")
+        if not args.predictions:
+            parser.error("--min-accuracy requires --predictions")
     if not args.predictions and not args.export_ragas:
         parser.error("Provide --predictions or --export-ragas")
     try:
@@ -225,9 +232,13 @@ def main():
                     f"{model['model']}: {model['correct']}/{model['total']} "
                     f"({model['accuracy']:.1%}), missing={model['missing']}"
                 )
+            if args.min_accuracy is not None and any(
+                model["accuracy"] < args.min_accuracy for model in report["models"]
+            ):
+                return 1
     except (OSError, ValueError, TypeError) as error:
         parser.error(str(error))
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

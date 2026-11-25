@@ -73,3 +73,7 @@ Neither integration check calls a model API.
 These are example policies, not real bank policies or regulatory guidance. Twelve
 cases are a demonstration set, not a general capability or production-readiness
 benchmark. Extend the cases and review their references before using real results.
+
+### CI accuracy gate
+
+Add `--min-accuracy 0.9` to a saved-prediction comparison to require every model to reach 90% accuracy. The command writes the JSON/HTML reports before exiting with code 1 on a failed gate. Invalid thresholds or missing predictions exit with code 2. The default remains report-only.
